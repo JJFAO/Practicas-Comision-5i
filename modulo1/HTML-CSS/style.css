@@ -12,6 +12,9 @@ h2,
 h3 {
   font-family: "Raleway", sans-serif;
 }
+textarea {
+  resize: none;
+}
 .nav {
   list-style-type: none;
   margin: 0;
@@ -45,13 +48,16 @@ h3 {
 }
 
 .about {
-  margin: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 300px;
   padding: 20px;
+  height: 200px;
   background-color: #fff;
   box-shadow: 10px 10px 5px grey;
 }
 .about p {
-  padding: 20px;
+  padding: 30px;
   color: #7c7c7c;
   font-size: large;
 }
@@ -77,4 +83,41 @@ h3 {
   padding: 20px;
   color: #7c7c7c;
   border-bottom: 2px solid #fff;
+}
+.subtitulo{
+  text-align: center;
+  padding-top: 6rem;
+}
+
+.contacto{
+  background-color: #FFFFFF;
+  margin-top: 200px;
+  padding-bottom: 100px;
+}
+
+.form-contactame{
+  width: 1000px;
+  margin: auto; 
+  padding: 20px;
+}
+
+.form-contactame label{
+  font-size: large;
+  margin: 20px;
+}
+
+.form-contactame input{
+  width: 300px;
+  height: 30px;
+  margin: 20px;
+}
+
+.form-contactame button{
+  font-size: large;
+  background-color: orange;
+  border: none;
+  width: 760px;
+  height: 40px;
+  margin-left: 122px;
+  margin-top: 20px;
 }
