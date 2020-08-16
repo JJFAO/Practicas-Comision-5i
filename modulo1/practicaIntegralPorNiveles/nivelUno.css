@@ -1,0 +1,45 @@
+body{
+    background: #f2f2f2
+}
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  .nav > li {
+    float: left;
+  }
+  
+  .nav > li a {
+    display: block;
+    color: white;
+    padding: 20px;
+  }
+
+.contenedor-perfil{
+    margin-top: 100px;
+    margin-left: 500px;
+    margin-bottom: 100px;
+}
+
+.contenedor-about{
+    background: #ffffff;
+    margin: 50px;
+    padding: 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: orangered;
+}
+
+.formulario{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 50px;
+    padding: 30px;
+}
+
+.formulario textarea{
+    margin-top: 20px;
+}
