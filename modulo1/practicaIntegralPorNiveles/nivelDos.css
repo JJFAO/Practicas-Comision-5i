@@ -1,0 +1,95 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+  font-family: "Ubuntu", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+.nav > li {
+  float: left;
+}
+
+.nav > li a {
+  display: block;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.nav li a:hover {
+  background-color: #111;
+}
+.contenedor-perfil {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  text-align: center;
+}
+.contenedor-about{
+    margin-bottom: 200px;
+}
+.contenido-about {
+  background: #ffffff;
+  margin: 50px;
+  padding: 30px;
+  border-bottom: solid;
+  border-right: solid;
+  border-width: 1px;
+  border-color: orangered;
+  box-shadow: 6px 12px #cac9c9;
+}
+
+.form-contactame {
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.form-contactame label {
+  font-size: large;
+  display: inline-block;
+  width: 60px;
+  margin: 20px;
+}
+
+.form-contactame input {
+  width: 300px;
+  height: 30px;
+  margin: 20px;
+}
+
+.form-contactame textarea {
+  margin: 20px;
+  height: 100px;
+  width: 400px;
+}
+
+.form-contactame button {
+  background-color: orangered;
+  border: none;
+  width: 400px;
+  height: 40px;
+  margin: 20px;
+}
