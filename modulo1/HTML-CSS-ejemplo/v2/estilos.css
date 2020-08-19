@@ -67,11 +67,6 @@ ul {
     left: 0;
     /* vertical-align: middle; */
     /* padding: 4px; */
-    transition-duration: 0.7s;
-}
-.logo:hover {
-    transform: rotate3d(0.8,1,0, 360deg);
-    transition-timing-function: ease-in-out;
 }
 a {
     text-decoration: none;
@@ -96,4 +91,11 @@ a.link:active {
     top: 40%;
     left: 25%;
     z-index: -1;
+}
+.giro {
+    transition-duration: 0.7s;
+}
+.giro:hover {
+    transform: rotate3d(0.8,1,0, 360deg);
+    transition-timing-function: ease-in-out;
 }
