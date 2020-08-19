@@ -1,0 +1,99 @@
+body {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+}
+h1,
+h2,
+h3 {
+    font-family: "Raleway", sans-serif;
+}
+table {
+    box-shadow: 0 10px 20px #0000001a;
+}
+header {
+    background-color: #141313e0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+}
+section {
+    margin: 2rem;
+}
+ul {
+    padding: 0;
+}
+.header-space {
+    height: 60px;
+}
+.inline {
+    display: inline-block;
+}
+.relative {
+    position: relative;
+}
+.title {
+    font-size: 24px;
+    color: midnightblue;
+}
+#contacto {
+    border-color: orangered;
+    border-spacing: 1px;
+    border-width: 1px;
+    border-style: dashed;
+    width: 400px;
+    margin: 50px;
+    padding: 30px;
+}
+.formulario label {
+    width: 200px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.formulario textarea {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+}
+.form-footer {
+    display: block;
+    margin-left: auto;
+    margin-top: 1rem;
+}
+
+.logo {
+    position: absolute;
+    width: 50px;
+    left: 0;
+    /* vertical-align: middle; */
+    /* padding: 4px; */
+    transition-duration: 0.7s;
+}
+.logo:hover {
+    transform: rotate3d(0.8,1,0, 360deg);
+    transition-timing-function: ease-in-out;
+}
+a {
+    text-decoration: none;
+    color: powderblue;
+    margin: 0 1rem;
+}
+a.link:visited {
+    color: #9dc6cc;
+}
+a.link:hover {
+    color: red;
+}
+a.link:active {
+    color: #6f00ff;
+}
+.texto-fondo {
+    font-size: 1.5rem;
+    color: #e604045b;
+    display: inline-block;
+    transform: rotateZ(-24deg);
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    z-index: -1;
+}
