@@ -15,6 +15,8 @@ header {
     text-align: center;
     position: fixed;
     width: 100%;
+    background-image: radial-gradient(ellipse at top left, #41bece, #3F51B5, #55167d);
+    z-index: 1;
 }
 section {
     margin: 2rem;
@@ -70,11 +72,11 @@ ul {
 }
 a {
     text-decoration: none;
-    color: powderblue;
+    color: #ddf3f7;
     margin: 0 1rem;
 }
 a.link:visited {
-    color: #9dc6cc;
+    color: #d0dfe0;
 }
 a.link:hover {
     color: red;
