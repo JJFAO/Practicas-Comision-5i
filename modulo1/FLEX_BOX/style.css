@@ -1,0 +1,26 @@
+body {
+    background-color: #dddddd;
+}
+
+.contenedor{
+    background-color: #fff;
+    width: 400px;
+    height: 300px;
+}
+.cuadrado {
+    background-color: #7fffff;
+    padding-top: 0.5rem ;
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    text-align: center;
+    border: 1px solid black
+}
+
+.contenedor-flex{
+    display: flex;
+    flex-flow: row wrap;
+}
+.cuarto{
+    align-self: center;
+}
