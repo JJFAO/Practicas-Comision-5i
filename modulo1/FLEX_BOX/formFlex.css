@@ -1,0 +1,66 @@
+body {
+    font-family: sans-serif;
+    background-color: plum;
+    margin: 0;
+    color: #eee;
+}
+
+.contenedor-flex {
+    background-color: #333;
+    width: 80%;
+    height: 450px;
+    display: flex;
+    margin: 2em auto;
+}
+
+.contenedor-form {
+    width: 100%;
+    padding: .5rem 2rem;
+}
+
+.titulo {
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 350px;
+}
+
+.grupo {
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-nombres {
+    display: flex;
+    justify-content: space-between;
+}
+
+.seccion-nombres input {
+    width: 200px;
+}
+
+.form-label {
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-size: .8rem;
+}
+
+.form-textarea {
+    resize: none;
+    height: 100px;
+}
+
+.boton {
+    width: 40%;
+    background: #02648b;
+    border: none;
+    padding: 1rem;
+    border-radius: 15px;
+    text-transform: uppercase;
+    color: inherit; /*atencion*/
+}
