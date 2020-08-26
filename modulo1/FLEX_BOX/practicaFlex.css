@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: sans-serif;
     background: #b94bf8; /* fallback for old browsers */
@@ -11,6 +16,7 @@ body {
     height: 100vh;
 }
 nav {
+    padding: 10px;
     background-color: #222;
     display: flex;
     justify-content: flex-end;
