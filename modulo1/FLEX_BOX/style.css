@@ -17,10 +17,10 @@ body {
     border: 1px solid black
 }
 
-.contenedor-flex{
+/* .contenedor-flex{
     display: flex;
     flex-flow: row wrap;
 }
 .cuarto{
     align-self: center;
-}
+} */
