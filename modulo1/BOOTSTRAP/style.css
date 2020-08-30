@@ -4,6 +4,9 @@ body {
     padding-bottom: 12rem;
 }
 .card-hotel{
+    flex-grow: 0;
+    flex-basis: 180px;
+    /* Dos formas de definir el valor de grow y basis */
     flex: 0 180px;
     padding: 2px 10px;
     margin-top: 1rem;
