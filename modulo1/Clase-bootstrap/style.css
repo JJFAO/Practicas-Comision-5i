@@ -1,0 +1,10 @@
+.jumbo-color {
+    background-color: darkblue;
+    background-image: radial-gradient(ellipse at top left, #41bece, #3F51B5, #55167d);
+    color: cornsilk;
+}
+.card-hotel {
+    width: 180px;
+    margin-top: 1rem;
+    padding: 2px 10px;
+}

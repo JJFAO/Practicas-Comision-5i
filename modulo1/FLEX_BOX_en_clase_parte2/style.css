@@ -108,3 +108,9 @@ body {
 .w-100{
     width: 100%;
 }
+
+@media (max-width: 420px) {
+    .padding-mobile {
+        padding-top: 2rem;
+    }
+}

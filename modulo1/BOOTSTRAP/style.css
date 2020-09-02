@@ -1,13 +1,14 @@
 body {
     min-height: 100vh;
-    position: relative;
-    padding-bottom: 12rem;
+    display: flex;
+    flex-direction: column;
 }
 .card-hotel{
-    flex-grow: 0;
-    flex-basis: 180px;
+    /* flex-grow: 0;
+    flex-basis: 180px; */
+    width: 180px;
     /* Dos formas de definir el valor de grow y basis */
-    flex: 0 180px;
+    /* flex: 0 180px; */
     padding: 2px 10px;
     margin-top: 1rem;
 }
@@ -17,7 +18,5 @@ body {
 }
 footer.footer{
     background-color: #dfdf19;
-    height: 12rem;
-    position: absolute;
-    bottom: 0;
+    margin-top: auto;
 }
