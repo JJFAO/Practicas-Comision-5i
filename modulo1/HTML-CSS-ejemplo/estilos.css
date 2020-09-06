@@ -13,13 +13,6 @@ table {
 header {
     background-color: rgb(20, 19, 19);
 }
-header ul {
-    margin: auto;
-    padding: 1rem;
-}
-nav {
-    height: 100%;
-}
 section {
     margin: 2rem;
 }

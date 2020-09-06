@@ -15,7 +15,7 @@ header {
     text-align: center;
     position: fixed;
     width: 100%;
-    background-image: radial-gradient(ellipse at top left, #41bece, #3F51B5, #55167d);
+    background-image: radial-gradient(ellipse at top left, #41bece, #3f51b5, #55167d);
     z-index: 1;
 }
 section {
@@ -68,15 +68,14 @@ ul {
     width: 50px;
     left: 0;
     /* vertical-align: middle; */
-    /* padding: 4px; */
 }
-a {
+a.link {
     text-decoration: none;
     color: #ddf3f7;
     margin: 0 1rem;
 }
 a.link:visited {
-    color: #d0dfe0;
+    color: #a6abac;
 }
 a.link:hover {
     color: red;
@@ -98,6 +97,18 @@ a.link:active {
     transition-duration: 0.7s;
 }
 .giro:hover {
-    transform: rotate3d(0.8,1,0, 360deg);
+    transform: rotate3d(0.8, 1, 0, 360deg);
     transition-timing-function: ease-in-out;
+}
+.text-center {
+    /* centrar contenidos con display inline */
+    text-align: center;
+}
+.w-100 {
+    width: 100%;
+}
+.margin-auto {
+    /* centrar bloques con margin auto */
+    margin: auto;
+    width: 200px;
 }
