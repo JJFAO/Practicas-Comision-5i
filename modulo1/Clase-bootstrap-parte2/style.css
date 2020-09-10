@@ -1,12 +1,19 @@
+:root {
+    --ui-shadow-01: 0 2px 2px 0px rgba(0, 0, 0, 0.4);
+}
+.item {
+    box-shadow: var(--ui-shadow-01);
+}
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: 'Signika', sans-serif;
+    font-family: "Signika", sans-serif;
+}
 }
 .jumbo-color {
     background-color: darkblue;
-    background-image: radial-gradient(ellipse at top left, #41bece, #3F51B5, #55167d);
+    background-image: radial-gradient(ellipse at top left, #41bece, #3f51b5, #55167d);
     color: cornsilk;
 }
 #titulos {
@@ -17,6 +24,8 @@ body {
     margin-top: 1rem;
     padding: 2px 10px;
     border-color: #55167d65 !important;
+    /* box-shadow: 0 2px 2px 0px rgba(0,0,0,0.40); */
+    box-shadow: var(--ui-shadow-01);
 }
 .description {
     padding: 15px 10px;
