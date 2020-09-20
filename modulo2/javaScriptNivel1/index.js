@@ -27,7 +27,7 @@ mostrarTexto('primer mensaje', 'segundo mensaje');
 
 function multiplicarPorDos(num) {
     let resultado = parseInt(num) * 2;
-    return resultado; // las funciones pueden retornar un valor al ser llamados, return también sirve para indicar o forzar el final de una función.
+    return resultado; // con return las funciones pueden retornar un valor al ser llamadas, también sirve para indicar o forzar el final de una función.
 }
 
 let producto = multiplicarPorDos(10);
@@ -44,11 +44,15 @@ let entero = parseInt('200'); // una función incluida en JS, recibe un dato de 
 let numeroIngresado = prompt('ingrese un número'); // la función prompt retorna un string con el dato ingresado por el usuario. 
 
 let producto2 = multiplicarPorDos(numeroIngresado); // al llamar a una función, podemos indicar en el parámetro: un valor, una variable o el valor que retorne otra función
+console.log(producto2);
+
+
+// las funciones son declaradas una vez y pueden ser llamadas cualquier cantidad de veces.
+
 
 // let producto = multiplicarPorDos(prompt('ingrese un número')); // una función que recibe el retorno de otra función como parámetro.
 
-console.log(producto2);
 
-document.write(producto2); // esta función del navegador nos permite escribir en el documento html.
+document.write(producto2); // esta función incluida en el navegador nos permite escribir en el documento html.
 
 
