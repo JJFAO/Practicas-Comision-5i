@@ -1,0 +1,24 @@
+Se realiza la carga de 10 valores enteros por teclado. Se desea conocer:
+    a)	La cantidad de valores negativos ingresados. ✅
+    b)	La cantidad de valores positivos ingresados. ✅
+    c)	La cantidad de múltiplos de 15. ✅
+    d)	El valor acumulado de los números ingresados que son pares.
+
+https://docs.google.com/document/d/13L5GLnpohp6uuI_7euxRQHYW78IMjEulroOhREvALkE/edit?usp=sharing
+
+Entradas: 10 números ingresados por el usuario.
+
+Salidas:
+    De esos 10 números, mostrar la cantidad de
+        negativos
+        positivos
+        múltiplos de 15
+    y la suma de todos los números pares.
+
+Procesos:   (Cada uno de estos procesos serán nuestros sub-problemas)
+    Repetir 10 entradas de datos: BUCLE FOR ()
+    Por cada entrada evaluar y contar: CONDICIONALES IF () Y VARIABLES CONTADOR
+        si es negativo: OPERACIÓN LÓGICA DE RELACIÓN O RANGO
+        si es positivo  
+        si es múltiplo de 15  OPERACIÓN DE RELACIÓN Y COMPARACIÓN 
+    Y sumar cada vez que sea par.  OPERACIÓN DE RELACIÓN, COMPARACIÓN Y VARIABLE ACUMULADOR
