@@ -88,7 +88,24 @@ function evaluar10Numeros() {
     let acumuladorDePares = 0; // Y de un acumulador porque es necesario calcular una suma dentro del bucle.
 
     for (let contador = 0; contador < 10; contador++) { // Usamos un bucle for () para pedir 10 números al usuario y evaluar cada uno.
-        const numeroEntero = parseInt(prompt('Ingrese un numero entero')); // Guardamos en una constante el número ingresado ya parseado/convertido a entero.
+        // Inicializamos con let las variables numero y valido, para poder reasignarlas durante la ejecución de nuestro programa.
+        let numero = '';
+        let valido = false;
+
+        do { // Haremos una validación con un bucle do-while para pedir un número al usuario, hasta que ingrese uno válido.
+            numero = prompt('Ingrese un numero entero');
+            valido = validarNumero(numero); // La validación de números en un prompt() se vuelve frecuente, por tanto creamos una función para reutilizarla.
+
+            if (numero === null) {
+                console.log('Se canceló la ejecución 🥺');
+                return; // Si el usuario presiona cancelar, con return finalizamos prematuramente la ejecución de la función.
+            }
+            if (!valido) {
+                alert('No ingresó un número válido 😠');
+            }
+        } while (!valido); // Mientras el valor ingresado no sea válido, se repetirá el bucle.
+
+        const numeroEntero = parseInt(numero); // Guardamos en una constante el número ingresado ya parseado/convertido a entero.
         const esNegativo = numeroEntero < 0;
         const esMultiploDe15 = numeroEntero % 15 === 0;
 
