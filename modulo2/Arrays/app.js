@@ -1,8 +1,7 @@
-
-    //     Solicitar Notas de: Primer Parcial, Segundo Parcial y Proyecto Final.
-    //     Ingresar el valor para cada nota.
-    //     Calcular el promedio.
-    //     Validar si gana o pierde la materia.
+//     Solicitar Notas de: Primer Parcial, Segundo Parcial y Proyecto Final.
+//     Ingresar el valor para cada nota.
+//     Calcular el promedio.
+//     Validar si gana o pierde la materia.
 
 function calcularPromedio() {
     const notas = [];
