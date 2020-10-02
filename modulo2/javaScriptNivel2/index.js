@@ -122,65 +122,11 @@ function evaluar10Numeros() {
         }
     }
 
-    console.log('Terminó el bucle');
+    // Al finalizar la ejecución del bucle, mostramos los valores que guardan las variables.
+    console.log('La cantidad de negativos es: 😎' + cantidadDeNegativos);
+    console.log('La cantidad de positivos es: 😒' + cantidadDePositivos);
+    console.log('La cantidad de múltiplo de 15 es: 🤞' + cantidadDeMultiplosDe15);
+    console.log('La suma de los números pares es: 😜' + acumuladorDePares);
 }
 
 
-// Al finalizar la ejecución del bucle, mostramos los valores que guardan las variables.
-console.log('La cantidad de negativos es: 😎' + cantidadDeNegativos)
-console.log('La cantidad de positivos es: 😒' + cantidadDePositivos)
-console.log('La cantidad de múltiplo de 15 es: 🤞' + cantidadDeMultiplosDe15)
-console.log('La suma de los números pares es: 😜' + acumuladorDePares)
-}
-
-
-
-// const array = ['uno', 'dos', 'tres']
-
-// for (let indice = 0; indice < array.length; indice++) {
-//     const numero = array[indice];
-//     console.log(numero)
-// }
-
-
-function calcularPromedio() {
-    //     Solicitar Notas de: Primer Parcial, Segundo Parcial y Proyecto Final.
-    //     Ingresar el valor para cada nota.
-    //     Calcular el promedio.
-    //     Validar si gana o pierde la materia.
-
-    const notas = [];
-
-    let nombre = prompt("Ingresar Nombre del Alumno")
-
-    let notaPrimerParcial = prompt("Ingresar nota del Primer Parcial")
-    notas.push(notaPrimerParcial)
-
-    let notaSegundoParcial = prompt("Ingresar nota del Segundo Parcial")
-    notas.push(notaSegundoParcial)
-
-    let notaProyectoFinal = prompt("Ingresar nota del Proyecto Final")
-    notas.push(notaProyectoFinal)
-
-    let sumaNotas = 0
-
-    for (let i = 0; i < notas.length; i++) {
-        sumaNotas = sumaNotas + parseInt(notas[i]);
-
-    }
-
-    let promedio = sumaNotas / notas.length
-    let aprobado = promedio > 7
-
-    if (aprobado) {
-
-        console.log(nombre + " Aprobado")
-    } else {
-        console.log(nombre + " Desaprobado")
-
-    }
-
-
-
-
-}
