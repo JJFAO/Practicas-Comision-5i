@@ -14,4 +14,7 @@ form.onsubmit= (e) => {
     for (let i = 0; i < tareas.length; i++) {
         listaTareas.innerHTML += '<li class="list-group-item">' + tareas[i] + '</li>'
     }
+
+    // const listaTempalte = tareas.map(t => '<li class="list-group-item">' + t + '</li>')
+    // listaTareas.innerHTML = listaTempalte.join('')
 }
