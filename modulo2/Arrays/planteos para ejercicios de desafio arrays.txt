@@ -1,0 +1,30 @@
+Ejercicios con Arrays
+
+1)
+- const meses = ['enero', 'febrero'] Declaración de la variable con sus datos iniciales.
+- Usar un bucle for () para recorrer todos los elementos de la lista.
+- Un console.log por cada repetición donde se muestre el elemento de array. O alternativamente
+mostrar la lista en el html.
+
+2)
+- Con un prompt pedir ciudades al usuario.
+- Inicializar un array vacío al que se le agregarán las ciudades. Usar método push para agregar.
+- Condición que evalúe si el valor ingresado es 0 o null, no guardar este valor y detener el bucle.
+- Es necesario un bucle para pedir ciudades mientras no se ingrese null o 0. while o do while.
+- Para mostrar la longitud del arreglo usar .length.
+- Document.write para mostrar en el html, ciudades[0] ciudades[ciudades.length - 1]
+- Push con la ciudad 'Paris'
+- ciudades[1]
+- ciudades[1] = 'Barcelona'
+
+3)
+- Obtener números aleatorios entre 1 y 6 con Math.random https://www.w3schools.com/js/js_random.asp 
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_random_1_10 
+Math.floor(Math.random() * 6 + 1);
+- const suma = aleatoriosEntre1y6() + aleatoriosEntre1y6()
+- Inicializar un array apariciones = [0,0,0,0,0,0,0,0,0,0,0,0]
+que guarde la cantidad de apariciones de cada suma de dados.
+Este array debe estar declarado fuera del bucle.
+- apariciones[suma - 2] += 1
+- Repetir el código anterior 50 veces, con un bucle for (let index = 0; index < 50; index++) {}
+
