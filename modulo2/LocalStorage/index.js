@@ -11,6 +11,10 @@ const lastNameInput = document.getElementById('lastName');
 const birthDateInput = document.getElementById('birthDate');
 const divisionInput = document.getElementById('division');
 
+const generateId = function () {
+    return '_' + Math.random().toString(36).substr(2, 9);
+};
+
 formUser.onsubmit = (e) => {
     e.preventDefault();
     // Traer la lista de usuarios de localStorage,
@@ -33,6 +37,8 @@ formUser.onsubmit = (e) => {
         lastName: lastName,
         birthDate: birthDate,
         division: division,
+        id: generateId(),
+        createdAt: Date.now()
     })
     // Guardar lista de usuarios en localStorage.
     const usersJson = JSON.stringify(users);
