@@ -10,6 +10,11 @@ const nameInput = document.getElementById('name');
 const lastNameInput = document.getElementById('lastName');
 const birthDateInput = document.getElementById('birthDate');
 const divisionInput = document.getElementById('division');
+const emailModalInput = document.getElementById('emailModal');
+const birthDateModalInput = document.getElementById('birthDateModal');
+const divisionModalInput = document.getElementById('divisionModal');
+const formEdit = document.getElementById('formEdit');
+let editUserId = '';
 
 const generateId = function () {
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -20,6 +25,7 @@ formUser.onsubmit = (e) => {
     // Traer la lista de usuarios de localStorage,
     // y el valor por defecto en caso que no exista.
     const users = JSON.parse(localStorage.getItem('users')) || [];
+    // Guardar en variables los valores ingresados por el usuario.
     const nickname = nicknameInput.value;
     const email = emailInput.value;
     const password = passwordInput.value;
@@ -51,6 +57,51 @@ formUser.onsubmit = (e) => {
     displayUser();
 }
 
+const getModal = (user) => {
+    // Esta función devuelve el modal con todos los datos del usuario.
+    const createdAt = new Date(user.createdAt);
+    return `
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal${user.id}">
+        Mostrar
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modal${user.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">${user.nickname}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Nombre: ${user.name} ${user.lastName}</p>
+                    <p>Email: ${user.email}</p>
+                    <p>Fecha de nacimiento: ${user.birthDate}</p>
+                    <p>Seniority: ${user.division}</p>
+                    <p>Fecha de registro: ${createdAt.toLocaleString()}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+}
+
+const loadForm = (userId) => {
+    // Mostrar datos del usuario seleccionado, en los campos del formulario.
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find((u) => u.id === userId);
+    emailModalInput.value = user.email;
+    birthDateModalInput.value = user.birthDate;
+    divisionModalInput.value = user.division;
+    editUserId = userId;
+}
+
 function displayUser() {
     // Lista de usuarios traída de localStorage.
     const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -58,7 +109,6 @@ function displayUser() {
     for (let i = 0; i < users.length; i++) {
         // Guardamos los datos de usuario en user.
         const user = users[i];
-        const createdAt = new Date(user.createdAt)
         // Creamos en un string una fila para la tabla,
         // con los datos del usuario separados en cada celda.
         const tr = `
@@ -67,44 +117,22 @@ function displayUser() {
             <td>${user.email}</td>
             <td>${user.division || ''}</td>
             <td>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal${user.id}">
-                    Mostrar
-                </button>
+                ${getModal(user)}
+
+                <!-- Button trigger modal edit -->
+                <button type="button" class="btn btn-warning text-white" data-toggle="modal" data-target="#editModal" onclick="loadForm('${user.id}')"><i class="far fa-edit"></i></button>
+
                 <button onclick="deleteUser('${user.id}')" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                 
-                <!-- Modal -->
-                <div class="modal fade" id="modal${user.id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">${user.nickname}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>Nombre: ${user.name} ${user.lastName}</p>
-                                <p>Email: ${user.email}</p>
-                                <p>Fecha de nacimiento: ${user.birthDate}</p>
-                                <p>Seniority: ${user.division}</p>
-                                <p>Fecha de registro: ${createdAt.toLocaleString()}</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </td>
         </tr>
-        `
+        `;
         // Agregamos el string de la fila al array rows.
-        rows.push(tr)
+        rows.push(tr);
     }
     // Unimos todas las filas en un solo string con join(),
     // y lo insertamos en el contenido de la tabla.
-    usersTable.innerHTML = rows.join('')
+    usersTable.innerHTML = rows.join('');
 }
 
 displayUser();
@@ -115,6 +143,14 @@ function deleteUser(userId) {
     // Eliminar un usuario, usando filter() para filtrar el usuario
     // que coincide con el id recibido por parámetros.
     const filteredUsers = users.filter((user) => user.id !== userId);
+    // El método filter() de los arrays nos ahorra tener que escribir un for () como:
+    // let filtered = []
+    // for (let i = 0; i < users.length; i++) {
+    //     const user = users[i];
+    //     if (user.id !== userId) {
+    //         filtered.push(user)
+    //     }
+    // }
     // Guardar lista de usuarios en localStorage.
     const usersJson = JSON.stringify(filteredUsers);
     localStorage.setItem('users', usersJson);
@@ -122,4 +158,39 @@ function deleteUser(userId) {
     displayUser();
 }
 
-
+formEdit.onsubmit = (e) => {
+    e.preventDefault()
+    // Traer la lista de usuarios de localStorage,
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    // Guardar en variables los valores ingresados por el usuario.
+    const email = emailModalInput.value;
+    const birthDate = birthDateModalInput.value;
+    const division = divisionModalInput.value;
+    // Actualizar un usuario del array, usando map().
+    const updatedUsers = users.map((u) => {
+        if (u.id === editUserId) {
+            // Usar spread syntax para copiar las propiedades de un objeto a otro.
+            const user = {
+                ...u,
+                email: email,
+                birthDate: birthDate,
+                division: division,
+            }
+            return user;
+        } else {
+            // Retornar el usuario sin modificar en los casos que no coincida el id.
+            return u;
+        }
+    });
+    // Esto puede ser expresado también con el operador ternario:
+    // const updatedUsers = users.map((u) => (
+        // u.id === editUserId ? { ...u, email, birthDate, division } : u);
+    // )
+    // Guardar lista de usuarios en localStorage.
+    const usersJson = JSON.stringify(updatedUsers);
+    localStorage.setItem('users', usersJson);
+    formEdit.reset();
+    displayUser();
+    // Ocultar el modal con las funciones incluidas en jQuery.
+    $('#editModal').modal('hide');
+}
