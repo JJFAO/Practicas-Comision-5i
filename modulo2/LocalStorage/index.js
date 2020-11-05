@@ -1,4 +1,4 @@
-//-------- Práctica de Alta y lectura con localStorage --------
+//-------- Práctica de Alta, lectura, baja y modificación con localStorage --------
 
 const formUser = document.getElementById('formUser');
 const nicknameInput = document.getElementById('nickname');
@@ -15,6 +15,8 @@ const birthDateModalInput = document.getElementById('birthDateModal');
 const divisionModalInput = document.getElementById('divisionModal');
 const formEdit = document.getElementById('formEdit');
 let editUserId = '';
+const search = document.getElementById('search');
+const searchForm = document.getElementById('searchForm');
 
 const generateId = function () {
     return '_' + Math.random().toString(36).substr(2, 9);
@@ -22,8 +24,8 @@ const generateId = function () {
 
 formUser.onsubmit = (e) => {
     e.preventDefault();
-    // Traer la lista de usuarios de localStorage,
-    // y el valor por defecto en caso que no exista.
+    // Traer la lista de usuarios de localStorage.
+    // Sino existe la clave 'users', devuelve un arreglo vacío.
     const users = JSON.parse(localStorage.getItem('users')) || [];
     // Guardar en variables los valores ingresados por el usuario.
     const nickname = nicknameInput.value;
@@ -53,8 +55,8 @@ formUser.onsubmit = (e) => {
     console.log("formUser.onsubmit -> users", users);
     // Limpiar todos los campos del formulario con reset().
     formUser.reset();
-    // Actualizar la tabla en el html llamando a la función displayUser(). 
-    displayUser();
+    // Actualizar la tabla en el html llamando a la función displayAllUsers(). 
+    displayAllUsers();
 }
 
 const getModal = (user) => {
@@ -102,9 +104,73 @@ const loadForm = (userId) => {
     editUserId = userId;
 }
 
-function displayUser() {
+function displayAllUsers() {
     // Lista de usuarios traída de localStorage.
     const users = JSON.parse(localStorage.getItem('users')) || [];
+    console.log("displayAllUsers -> users", users)
+    displayUsers(users);
+}
+
+function deleteUser(userId) {
+    // Traer la lista de usuarios de localStorage.
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    // Eliminar un usuario, usando filter() para filtrar el usuario
+    // que coincide con el id recibido por parámetros.
+    const filteredUsers = users.filter((user) => user.id !== userId);
+    // El método filter() de los arrays nos ahorra tener que escribir un for () como:
+    // let filtered = []
+    // for (let i = 0; i < users.length; i++) {
+    //     const user = users[i];
+    //     if (user.id !== userId) {
+    //         filtered.push(user)
+    //     }
+    // }
+    // Guardar lista de usuarios en localStorage.
+    const usersJson = JSON.stringify(filteredUsers);
+    localStorage.setItem('users', usersJson);
+    // Actualizar la tabla en el html llamando a la función displayAllUsers(). 
+    displayAllUsers();
+}
+
+formEdit.onsubmit = (e) => {
+    e.preventDefault()
+    // Traer la lista de usuarios de localStorage,
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    // Guardar en variables los valores ingresados por el usuario.
+    const email = emailModalInput.value;
+    const birthDate = birthDateModalInput.value;
+    const division = divisionModalInput.value;
+    const createdAt = Date.now();
+    // Actualizar un usuario del array, usando map().
+    // const updatedUsers = users.map((u) => {
+    //     if (u.id === editUserId) {
+    //         // Usar spread syntax para copiar las propiedades de un objeto a otro.
+    //         const user = {
+    //             ...u,
+    //             email,
+    //             birthDate,
+    //             division,
+    //         }
+    //         return user;
+    //     } else {
+    //         // Retornar el usuario sin modificar en los casos que no coincida el id.
+    //         return u;
+    //     }
+    // });
+    // Esto puede ser expresado también con el operador ternario:
+    const updatedUsers = users.map((u) => (
+        (u.id === editUserId) ? { ...u, email, birthDate, division, createdAt } : u
+    ));
+    // Guardar lista de usuarios en localStorage.
+    const usersJson = JSON.stringify(updatedUsers);
+    localStorage.setItem('users', usersJson);
+    formEdit.reset();
+    displayAllUsers();
+    // Ocultar el modal con las funciones incluidas en jQuery.
+    $('#editModal').modal('hide');
+}
+
+function displayUsers(users) {
     const rows = [];
     for (let i = 0; i < users.length; i++) {
         // Guardamos los datos de usuario en user.
@@ -135,62 +201,23 @@ function displayUser() {
     usersTable.innerHTML = rows.join('');
 }
 
-displayUser();
-
-function deleteUser(userId) {
-    // Traer la lista de usuarios de localStorage.
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    // Eliminar un usuario, usando filter() para filtrar el usuario
-    // que coincide con el id recibido por parámetros.
-    const filteredUsers = users.filter((user) => user.id !== userId);
-    // El método filter() de los arrays nos ahorra tener que escribir un for () como:
-    // let filtered = []
-    // for (let i = 0; i < users.length; i++) {
-    //     const user = users[i];
-    //     if (user.id !== userId) {
-    //         filtered.push(user)
-    //     }
-    // }
-    // Guardar lista de usuarios en localStorage.
-    const usersJson = JSON.stringify(filteredUsers);
-    localStorage.setItem('users', usersJson);
-    // Actualizar la tabla en el html llamando a la función displayUser(). 
-    displayUser();
+let timeOut;
+search.oninput = (e) => {
+    // e.preventDefault();
+    if (timeOut) {
+        clearTimeout(timeOut);
+    }
+    timeOut = setTimeout(() => {
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const term = search.value;
+        console.log("term", term)
+        const filteredUsers = users.filter(u => (
+            u.name.toLowerCase().includes(term.toLowerCase())
+            || u.lastName.toLowerCase().includes(term.toLowerCase())
+        ))
+        displayUsers(filteredUsers);
+    }, 1000);
 }
 
-formEdit.onsubmit = (e) => {
-    e.preventDefault()
-    // Traer la lista de usuarios de localStorage,
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    // Guardar en variables los valores ingresados por el usuario.
-    const email = emailModalInput.value;
-    const birthDate = birthDateModalInput.value;
-    const division = divisionModalInput.value;
-    // Actualizar un usuario del array, usando map().
-    const updatedUsers = users.map((u) => {
-        if (u.id === editUserId) {
-            // Usar spread syntax para copiar las propiedades de un objeto a otro.
-            const user = {
-                ...u,
-                email: email,
-                birthDate: birthDate,
-                division: division,
-            }
-            return user;
-        } else {
-            // Retornar el usuario sin modificar en los casos que no coincida el id.
-            return u;
-        }
-    });
-    // Esto puede ser expresado también con el operador ternario:
-    // const updatedUsers = users.map((u) => (
-        // u.id === editUserId ? { ...u, email, birthDate, division } : u);
-    // )
-    // Guardar lista de usuarios en localStorage.
-    const usersJson = JSON.stringify(updatedUsers);
-    localStorage.setItem('users', usersJson);
-    formEdit.reset();
-    displayUser();
-    // Ocultar el modal con las funciones incluidas en jQuery.
-    $('#editModal').modal('hide');
-}
+displayAllUsers();
+
