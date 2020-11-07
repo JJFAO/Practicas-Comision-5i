@@ -17,6 +17,7 @@
 
 <body>
     <div class="container">
+        <!-- Formulario de registro de usuarios -->
         <form class="m-5" id="formUser">
             <div class="form-group">
                 <label for="nickname"> Alias </label>
@@ -55,10 +56,10 @@
             </div>
             <button type="submit" class="btn btn-primary"> Agregar </button>
         </form>
-        <ul id="usersList" class="list-group">
-        </ul>
     </div>
-    <div class="container">
+
+    <div class="container mb-5">
+        <!-- Barra de búsqueda por nombre y apellido -->
         <div class="card p-4">
             <form id="searchForm">
                 <input type="search" id="search" placeholder="Ingrese su búsqueda" style="width: 300px;">
@@ -68,6 +69,8 @@
                 <button class="btn btn-outline-warning" onclick="displayAllUser()" type="button">Limpiar</button>
             </form>
         </div>
+
+        <!-- Tabla de listado de usuarios -->
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -81,7 +84,7 @@
         </table>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal de edición de usuario -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -91,6 +94,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <!-- Formulario de edición de usuario -->
                 <form class="m-3" id="formEdit">
                     <div class="modal-body">
                         <div class="form-group">
@@ -133,6 +137,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <!-- Script principal -->
     <script src="index.js"></script>
 </body>
 
