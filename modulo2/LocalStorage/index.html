@@ -45,19 +45,21 @@
             </div>
             <div class="form-group">
                 <label for="division">División</label>
-                <select class="form-control" id="division" required>
-                    <option value="" disabled selected>Elija su seniority</option>
-                    <option>Trainee</option>
-                    <option>Junior</option>
-                    <option>Junior Advanced</option>
-                    <option>Semi Senior</option>
-                    <option>Senior</option>
-                </select>
+                <div class="d-flex">
+                    <div class="flex-grow-1 ">
+                        <select class="form-control" id="division" required>
+                        </select>
+                    </div>
+                    <div class="ml-2">
+                        <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#addDivisionModal">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary"> Agregar </button>
         </form>
     </div>
-
     <div class="container mb-5">
         <!-- Barra de búsqueda por nombre y apellido -->
         <div class="card p-4">
@@ -69,7 +71,6 @@
                 <button class="btn btn-outline-warning" onclick="displayAllUser()" type="button">Limpiar</button>
             </form>
         </div>
-
         <!-- Tabla de listado de usuarios -->
         <table class="table table-striped">
             <thead>
@@ -83,7 +84,6 @@
             </tbody>
         </table>
     </div>
-
     <!-- Modal de edición de usuario -->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -108,12 +108,7 @@
                         <div class="form-group">
                             <label for="division">División</label>
                             <select class="form-control" id="divisionModal" required>
-                                <option value="" disabled selected>Elija su seniority</option>
-                                <option>Trainee</option>
-                                <option>Junior</option>
-                                <option>Junior Advanced</option>
-                                <option>Semi Senior</option>
-                                <option>Senior</option>
+
                             </select>
                         </div>
                     </div>
@@ -125,7 +120,37 @@
             </div>
         </div>
     </div>
+    <!-- Modal de edición de divisiones -->
+    <div class="modal fade" id="addDivisionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Administrar divisiones</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Formulario de edición de divisiones -->
+                <form class="m-3" id="formDivision">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="divisionAdd"> Nombre de la división </label>
+                            <input type="text" id="divisionAdd" class="form-control" required placeholder="Agregar una división">
+                        </div>
+                        <div>
+                            <ul id="divisionUl">
 
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary"> Agregar </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -138,6 +163,8 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <!-- Script principal -->
+    <script src="users.js"></script>
+    <script src="divisions.js"></script>
     <script src="index.js"></script>
 </body>
 
