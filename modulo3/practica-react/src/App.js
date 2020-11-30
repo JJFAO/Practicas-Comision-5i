@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from './logo.svg';
 import './App.scss';
-import Button from 'react-bootstrap/Button';
 import Header from './Header';
 import Main from './Main';
 import { useState } from 'react';
@@ -19,7 +18,6 @@ function App() {
       <Header logo={logo} />
       {/*Al componente Main le enviamos el objeto info */}
       <Main data={info} />
-      {/* <Button variant="primary">Primary</Button> */}
       <Example />
       <Personas />
     </div>
@@ -30,7 +28,7 @@ function App() {
 function Example() {
   // Declaración de una variable de estado que llamaremos "count"
   const [count, setCount] = useState(0);
-
+  
   return (
     <div>
       {/* En este <p> se muestra el valor actual del state 'count'. */}

@@ -4,7 +4,6 @@ export default function Personas() {
     // Declaramos dos state, uno para guardar el array de nombres y otro para guardar el nombre a agregar.
     const [personas, setPersonas] = useState([])
     const [nombre, setNombre] = useState('')
-
     const lista = personas.map((p, i) => <li key={i}>{p}</li>)
 
     // La función que se llama en el evento click del botón
