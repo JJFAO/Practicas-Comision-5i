@@ -25,8 +25,8 @@ formLogin.onsubmit = function (e) {
         return apodo === usuario.apodo && contrasenia === usuario.contrasenia;
     });
     if (usuarioEncontrado) {
-
-        localStorage.setItem('userLogged', usuarioEncontrado.apodo);
+        const usuarioLogueado = { apodo: usuarioEncontrado.apodo };
+        localStorage.setItem('usuarioLogueado', JSON.stringify(usuarioLogueado));
         alert('Logueo Exitoso');
         window.location.href = 'index.html';
     } else {
