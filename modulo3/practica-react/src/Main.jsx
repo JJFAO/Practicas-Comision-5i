@@ -1,5 +1,6 @@
 import Card from './Card'
 import './Main.scss'
+import Photos from './Photos'
 
 export default function Main(props) {
     // En el parámetro, el componente recibe el objeto props,
@@ -59,6 +60,9 @@ export default function Main(props) {
                 <div className="row">
                     {cards}
                 </div>
+            </div>
+            <div className="container mt-5">
+                <Photos />
             </div>
         </main>
     )
