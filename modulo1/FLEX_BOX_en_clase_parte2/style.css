@@ -16,6 +16,7 @@ body {
     /* margin-left: auto; */
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     /* flex-direction: row; */
 }
 .contenedor-flex a {
@@ -73,6 +74,7 @@ body {
 .form-textarea {
     background: none;
     border: none;
+    font-size: 18px;
     border-bottom: 1px solid #eee;
     color: inherit;
 }
@@ -105,7 +107,7 @@ body {
     margin: 0 auto;
     /* align-self: center; */
 }
-.w-100{
+.w-100 {
     width: 100%;
 }
 
