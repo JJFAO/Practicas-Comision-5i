@@ -8,16 +8,16 @@ import Button from 'react-bootstrap/Button';
 // Al igual que con los componentes que creamos,
 // los componentes de librerías también se deben importar antes de usarlos.
 
-export default function Header() {
+export default function Header(props) {
     return (
         <header className="">
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="dark" variant="dark" expand="lg">
                 <Navbar.Brand href="#home">Práctica React</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#link">Link</Nav.Link>
+                        <Nav.Link onClick={() => props.changeSection('principal')} >Home</Nav.Link>
+                        <Nav.Link onClick={() => props.changeSection('formulario')} >Formulario</Nav.Link>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -28,7 +28,7 @@ export default function Header() {
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
+                        <Button variant="danger">Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Navbar>
