@@ -38,7 +38,9 @@
     border-radius: 50px;
     margin: 20px;
     cursor: pointer;
-    transition: ease-out 0.4s;
+    /* transition: ease-out 0.4s; */
+    transition-timing-function: ease-out;
+    transition-duration: 0.4s;
 }
 .color:hover {
     filter: drop-shadow(6px 6px 5px rgba(0, 0, 0, 0.616));

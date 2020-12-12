@@ -15,8 +15,15 @@ formHtml.onsubmit = function (event) {
 function mostrarApodo() {
     const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
     if (usuarioLogueado) {
-        apodoUsuarioHtml.innerHTML = usuarioLogueado.apodo;
+        apodoUsuarioHtml.innerHTML = usuarioLogueado.apodo + ` <button onclick="cerrarSesion()">Cerrar Sesión</button> `;
+    } else {
+        apodoUsuarioHtml.innerHTML = `<a href="./login.html">Login</a>`
     }
+}
+
+function cerrarSesion() {
+    localStorage.removeItem('usuarioLogueado');
+    window.location.reload();
 }
 
 mostrarApodo();
