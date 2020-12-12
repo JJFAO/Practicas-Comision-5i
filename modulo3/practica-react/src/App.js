@@ -6,10 +6,13 @@ import Main from './Main';
 import {useState} from 'react';
 import Personas from './Personas';
 import Form from './Form';
+import Articles from './components/Articles';
 
 function App() {
     const [section, setSection] = useState('principal');
+    // const [articles, setArticles] = useState([]);
     console.log('App - section', section);
+
     const info = {
         title: 'Mi título',
         description: 'Some quick example text to build on the card ',
@@ -19,15 +22,19 @@ function App() {
         <div className="App bg-fondo">
             {/*Al componente Header le enviamos la url de la imagen */}
             <Header logo={logo} changeSection={setSection} />
-            {/*Al componente Main le enviamos el objeto info */}
+            {/* Con esta sintaxis podemos renderizar condicionalmente distintos contenidos en la pantalla. */}
             {section === 'principal' && (
                 <div>
+                {/* Al componente Main le enviamos el objeto info */}
                     <Main data={info} />
                     <Example />
                     <Personas />
                 </div>
             )}
+            {/* Anteponemos un condicional para cada componente,
+                para que se muestren cuando coincidan con el valor del state section */}
             {section === 'formulario' && <Form />}
+            {section === 'articulos' && <Articles />}
         </div>
     );
 }

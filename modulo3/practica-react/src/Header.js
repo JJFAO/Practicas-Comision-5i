@@ -18,6 +18,7 @@ export default function Header(props) {
                     <Nav className="mr-auto">
                         <Nav.Link onClick={() => props.changeSection('principal')} >Home</Nav.Link>
                         <Nav.Link onClick={() => props.changeSection('formulario')} >Formulario</Nav.Link>
+                        <Nav.Link onClick={() => props.changeSection('articulos')} >Artículos</Nav.Link>
                         <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
