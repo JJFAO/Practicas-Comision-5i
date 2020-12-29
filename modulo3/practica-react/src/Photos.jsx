@@ -12,14 +12,15 @@ export default function Photos() {
     }, []) // Pasando como 2do parámetro un array vació, el código dentro del useEffect se ejecuta solo una vez.
     
     const getPhotos = async () => {
-        // getPhotos es una función asincrónica
-        // Dentro del bloque try, intentamos traer/get datos de jsonPlaceholder, con una request axios.get().
-        // Y usar ese dato (un array de photos) para actualizar el state datos.
+        // getPhotos es una función asincrónica.
         try {
+            // Dentro del bloque try, intentamos traer(get) datos de jsonPlaceholder, con una request axios.get().
             const photos = await axios.get('https://jsonplaceholder.typicode.com/photos');
-            setDatos(photos.data.slice(0, 9));
+            // Y usar ese dato (un array de photos) para actualizar el state datos.
+            const sliceOfPhotos = photos.data.slice(0, 9)
+            setDatos(sliceOfPhotos);
         } catch (error) {
-            // El bloque catch se ejecutará en caso de que ocurra algún error en bloque try.
+            // El bloque catch se ejecutará en caso de que ocurra algún error en el bloque try.
             console.log(error)
         }
     }

@@ -27,6 +27,7 @@ export default function Header(props) {
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                         </NavDropdown>
+                    <Button as={NavLink} to="/login" variant="info">Login</Button>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

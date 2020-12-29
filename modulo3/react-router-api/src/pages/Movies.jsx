@@ -7,7 +7,7 @@ import { getStorageArray } from "../utils"
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     getMovies();
@@ -19,7 +19,7 @@ export default function Movies() {
     try {
       const resp = await Axios.get(`http://www.omdbapi.com/?apikey=facef525&s=harry&page=${page}`);
       if (resp.data.Response === 'False') {
-        window.alert('Error en el servidor');
+        window.alert('Error en los datos obtenidos de la api.');
         return;
       }
       setMovies(resp.data.Search);
