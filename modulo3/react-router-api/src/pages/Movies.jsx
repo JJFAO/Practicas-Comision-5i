@@ -1,12 +1,13 @@
 import Axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "../components/Card";
-import CardArticle from "../components/CardArticle";
-import { getStorageArray } from "../utils"
 
 
 export default function Movies() {
   const [movies, setMovies] = useState([]);
+  // const arrayState = useState([]);
+  // const movies = arrayState[0];
+  // const setMovies = arrayState[1];
   const [page, setPage] = useState(0);
 
   useEffect(() => {
@@ -17,7 +18,12 @@ export default function Movies() {
 
   const getMovies = async () => {
     try {
-      const resp = await Axios.get(`http://www.omdbapi.com/?apikey=facef525&s=harry&page=${page}`);
+      const resp = await Axios.get(`http://www.omdbapi.com/?s=harry`, {
+        params: {
+          apikey: 'facef525',
+          page,
+        }
+      });
       if (resp.data.Response === 'False') {
         window.alert('Error en el servidor');
         return;
