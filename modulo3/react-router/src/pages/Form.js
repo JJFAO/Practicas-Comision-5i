@@ -14,7 +14,7 @@ export default function TheForm() {
     // Esta función se llama en cada input en el evento change.
     const handleChange = (e) => {
         // Extraemos y guardamos en variables, el nombre y el valor del input en el que escribió el usuario.
-        const name = e.target['name'];
+        const name = e.target.name;
         const value = e.target.value;
         // Declaramos un objeto que contiene las propiedades del state input,
         // más lo que escribe el usuario usando el name y value para agregar un propiedad.
