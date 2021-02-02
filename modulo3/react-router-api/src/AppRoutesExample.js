@@ -8,12 +8,13 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/esm/Button';
 
 function App() {
-    const [isAdmin, setIsAdmin] = useState(JSON.parse(localStorage.getItem('isAdmin')));
+    const [isAdmin, setIsAdmin] = useState(localStorage.getItem('isAdmin'));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
     const logout = () => {
-        setIsAdmin(false);
-        setUser();
+        // setIsAdmin(false);
+        // setUser();
+        localStorage.clear();
         window.location.reload();
         window.location.href = '/';
     };
@@ -21,43 +22,43 @@ function App() {
     return isAdmin ? (
         <AdminRoutes user={user} logout={logout} />
     ) : (
-        <UserRoutes user={user} setUser={setUser} setIsAdmin={setIsAdmin} />
-    );
-}
-
-function UserRoutes(props) {
-    return (
         <Router>
             <Switch>
                 <Route exact path="/404">
-                    <h1> 404</h1>
-                    <Button as={Link} to="/">
-                        Volver al inicio
-                    </Button>
+                    <NotFound404 />
                 </Route>
-                <Route path="/">
-                    <Header />
-                    <Switch>
-                        <Route path="/harry-potter">
-                            <Movies />
-                        </Route>
-                        <Route path="/articulos">
-                            <Articles />
-                        </Route>
-                        <Route path="/login">
-                            <Login loginAsAdmin={() => props.setIsAdmin(true)} setUser={props.setUser} />
-                        </Route>
-                        <Route exact path="/">
-                            Home
-                        </Route>
-                        <Route path="/">
-                            {' '}
-                            <Redirect to="404" />{' '}
-                        </Route>
-                    </Switch>
+
+                <Route path="/login">
+                    <Login loginAsAdmin={() => setIsAdmin(true)} setUser={setUser} />
                 </Route>
+
+                <UserRoutes user={user} setUser={setUser} setIsAdmin={setIsAdmin} />
             </Switch>
         </Router>
+    );
+}
+export default App;
+
+
+function UserRoutes(props) {
+    return (
+        <Route path="/">
+            <Header />
+            <Switch>
+                <Route path="/harry-potter">
+                    <Movies />
+                </Route>
+                <Route path="/articulos">
+                    <Articles />
+                </Route>
+                <Route exact path="/">
+                    Home
+                </Route>
+                <Route path="/">
+                    <Redirect to="404" />
+                </Route>
+            </Switch>
+        </Route>
     );
 }
 
@@ -86,4 +87,14 @@ function Login(props) {
         </form>
     );
 }
-export default App;
+
+function NotFound404() {
+    return (
+        <div>
+            <h1> 404</h1>
+            <Button as={Link} to="/">
+                Volver al inicio
+            </Button>
+        </div>
+    );
+}

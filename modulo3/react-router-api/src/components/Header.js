@@ -20,6 +20,7 @@ export default function Header(props) {
                         <Nav.Link as={NavLink} to="/" exact>Home</Nav.Link>
                         <Nav.Link as={NavLink} to="/harry-potter">Harry Potter</Nav.Link>
                     </Nav>
+                    <span style={{ color: 'white'}}>{props.user}</span>
                     <Button as={NavLink} to="/login">Login</Button>
                 </Navbar.Collapse>
             </Navbar>

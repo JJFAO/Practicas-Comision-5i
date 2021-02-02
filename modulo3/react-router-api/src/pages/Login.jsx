@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 
-
-export default function Login({ loginAsAdmin }) {
-  const [input, setInput] = useState({ username: '', password: '' })
+export default function Login({ loginAsAdmin, setUser }) {
+  const [input, setInput] = useState({ username: '', password: '' });
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,10 +15,12 @@ export default function Login({ loginAsAdmin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(input);
-    if (input.username === 'admin' && input.password === '123') {
+    setUser(input.username);
+    const isAdmin = input.username === 'admin' && input.password === '123';
+    if (isAdmin) {
       loginAsAdmin();
     }
+    history.push('/');
   }
 
   return (

@@ -1,9 +1,9 @@
-// Un uso que le daremos a las funciones es el de contener partes de código
+// Un uso que le daremos a las funciones es el de contener una secuencia de instrucciones
 // que queramos ejecutar y posiblemente reutilizar. ('modularizar')
 // Sería conveniente separar los ejercicios de práctica en distintas funciones por este motivo,
 // y para evitar tener mucho código comentado.
 
-// para este ejemplo vamos a hacer el llamado a esta función desde el evento click de un botón en el html.
+// Para este ejemplo vamos a llamar a esta función en el evento click de un botón en el html.
 
 function evaluarParidad() {
     // Esta función llama a prompt() para tomar un número ingresado por el usuario,
@@ -42,7 +42,7 @@ function bucleEvaluarParidad() {
     while (aceptar) {
         // Aquí el bucle se repetirá mientras el usuario presione Aceptar en la ventana del confirm().
         evaluarParidad();
-        aceptar = confirm('¿Desea otro ingresar un número para evaluar?');
+        aceptar = confirm('¿Desea ingresar otro número para evaluar?');
     }
 }
 

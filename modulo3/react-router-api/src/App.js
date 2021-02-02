@@ -1,17 +1,33 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
+// import './App.scss';
 import Header from './components/Header';
-import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Movies from './pages/Movies';
 import Footer from './components/Footer';
 import Login from './pages/Login';
-import {useState} from 'react';
+import { useState } from 'react';
 
 function App() {
     const [isAdmin, setIsAdmin] = useState(false);
-    console.log('App - isAdmin', isAdmin);
+    const [user, setUser] = useState('');
 
-    return isAdmin ? <AdminDashboard /> : <UserRoutes loginAsAdmin={() => setIsAdmin(true)} />;
+    const loginAsAdmin = () => {
+        setIsAdmin(true);
+    };
+
+    return isAdmin ? (
+        <AdminDashboard />
+    ) : (
+        <Router>
+            <Switch>
+                <Route path="/404" exact>
+                    <h1>404</h1>
+                </Route>
+
+                <UserRoutes loginAsAdmin={loginAsAdmin} user={user} setUser={setUser} />
+            </Switch>
+        </Router>
+    );
 }
 
 function AdminDashboard() {
@@ -19,21 +35,31 @@ function AdminDashboard() {
 }
 
 function UserRoutes(props) {
-    const {loginAsAdmin} = props;
+    const { loginAsAdmin, user, setUser } = props;
     return (
-        <Router>
-            <Header />
+        <Route path="/">
+            <Header user={user} />
+
             <Switch>
                 <Route path="/harry-potter">
                     <Movies />
                 </Route>
+
                 <Route path="/login">
-                    <Login loginAsAdmin={loginAsAdmin} />
+                    <Login loginAsAdmin={loginAsAdmin} setUser={setUser} />
                 </Route>
-                <Route path="/">Home</Route>
+
+                <Route path="/" exact>
+                    Home
+                </Route>
+
+                <Route path="/">
+                    <Redirect to="/404" />
+                </Route>
             </Switch>
+
             <Footer />
-        </Router>
+        </Route>
     );
 }
 
