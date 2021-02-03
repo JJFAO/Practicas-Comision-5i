@@ -14,7 +14,7 @@ export default function Movies() {
     getMovies();
   }, [page]);
 
-  const cardsMovies = movies.map((movie, i) => <Card title={movie.Title} image={movie.Poster} key={i} />);
+  const cardsMovies = movies.map((movie) => <Card title={movie.Title} image={movie.Poster} key={movie.imdbID} id={movie.imdbID} />);
 
   const getMovies = async () => {
     try {

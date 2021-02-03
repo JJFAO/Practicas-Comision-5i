@@ -20,6 +20,8 @@ export default function Login({ loginAsAdmin, setUser }) {
     if (isAdmin) {
       loginAsAdmin();
     }
+    e.target.reset();
+    // setInput({ username: '', password: '' });
     history.push('/');
   }
 
