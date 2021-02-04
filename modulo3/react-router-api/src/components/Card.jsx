@@ -13,6 +13,7 @@ export default function Card(props) {
                     <p>{props.description }</p>
                     <img src={props.image} alt="" className="img-fluid" />
                     <Button as={Link} to={`/details/${props.id}`}>Info</Button>
+                    <Link to={`/details/${props.id}`}>Mas Info</Link>
                 </div>
             </div>
         </div>
