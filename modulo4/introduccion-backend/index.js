@@ -18,6 +18,9 @@ mongoose.connect(
     }
 );
 
+// Habilitar express.json (tambien se puede usar body parser)
+app.use(express.json({ extended: true }));
+
 //importar rutas
 app.use('/api/usuarios', routeUsuarios);
 
