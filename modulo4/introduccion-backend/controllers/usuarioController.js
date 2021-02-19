@@ -43,6 +43,7 @@ exports.crearUsuario = async (req, res) => {
 
 exports.obtenerUsuarios = (req, res) => {
     console.log('funcion obtener usuarios');
+    res.send(req.usuario)
 };
 
 exports.actualizarUsuario = (req, res) => {

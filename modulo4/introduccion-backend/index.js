@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const routeUsuarios = require('./routes/usuarios');
+const routeAuth = require('./routes/auth');
 
 // crear el servidor
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.json({ extended: true }));
 
 //importar rutas
 app.use('/api/usuarios', routeUsuarios);
+app.use('/api/auth', routeAuth);
 
 // puerto y arranque del servidor
 app.listen(4000, () => {

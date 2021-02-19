@@ -1,10 +1,10 @@
 const formHtml = document.getElementById('formTareas');
 const inputHtml = document.getElementById('tarea');
 const listaHtml = document.getElementById('listaTareas');
-const apodoUsuarioHtml = document.getElementById('apodoUsuario');
 
 // inputHtml.value = 'practicar JS'
 
+// Agregar tareas a la lista
 formHtml.onsubmit = function (event) {
     event.preventDefault();
     const li = document.createElement('li');
@@ -12,6 +12,9 @@ formHtml.onsubmit = function (event) {
     listaHtml.appendChild(li);
 }
 
+
+// Mostrar nombre de usuario
+const apodoUsuarioHtml = document.getElementById('apodoUsuario');
 function mostrarApodo() {
     const usuarioLogueado = JSON.parse(localStorage.getItem('usuarioLogueado'));
     if (usuarioLogueado) {
@@ -21,6 +24,7 @@ function mostrarApodo() {
     }
 }
 
+//Cerrar Sesión
 function cerrarSesion() {
     localStorage.removeItem('usuarioLogueado');
     window.location.reload();
