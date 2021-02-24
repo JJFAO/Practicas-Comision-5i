@@ -16,6 +16,7 @@ router.post(
     ],
     usuarioController.crearUsuario
 );
+router.get('/usuarioLogueado', auth, usuarioController.usuarioLogueado);
 router.get('/', auth, usuarioController.obtenerUsuarios);
 router.put('/', usuarioController.actualizarUsuario);
 router.delete('/', usuarioController.eliminarUsuario);

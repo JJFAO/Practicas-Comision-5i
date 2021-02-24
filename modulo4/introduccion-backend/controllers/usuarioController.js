@@ -43,7 +43,7 @@ exports.crearUsuario = async (req, res) => {
 
 exports.obtenerUsuarios = (req, res) => {
     console.log('funcion obtener usuarios');
-    res.send(req.usuario)
+    res.send(req.usuario);
 };
 
 exports.actualizarUsuario = (req, res) => {
@@ -52,4 +52,9 @@ exports.actualizarUsuario = (req, res) => {
 
 exports.eliminarUsuario = (req, res) => {
     console.log('funcion eliminar usuarios');
+};
+
+exports.usuarioLogueado = async (req, res) => {
+    const usuarioEncontrado = await Usuario.findById(req.usuario.id).select('email _id nombre');
+    res.send(usuarioEncontrado);
 };

@@ -21,14 +21,14 @@ exports.login = async (req, res) => {
                 id: usuarioEncontrado.id,
             },
         };
-        jwt.sign(payload, process.env.SECRETA, { expiresIn: 3600 }, (error, token) => {
+        jwt.sign(payload, process.env.SECRETA, { expiresIn: 360000 }, (error, token) => {
             if (error) {
                 throw error;
             }
             res.send(token);
         });
     } catch (error) {
-      console.log(error);
-      res.status(400).send('Hubo un error al autenticar.');
+        console.log(error);
+        res.status(400).send('Hubo un error al autenticar.');
     }
 };
